@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock Investment App</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>📈 Real-Time Stock Tracker</h1>
+
+    <!-- Stock Symbol Input -->
+    <form id="stock-form">
+      <input type="text" id="symbol-input" placeholder="Enter Stock Symbol (e.g. AAPL)" required>
+      <button type="submit">Get Stock</button>
+    </form>
+
+    <!-- Stock Info Card -->
+    <div id="stock-card" class="hidden">
+      <h2 id="stock-name">Stock Info</h2>
+      <p><strong>Symbol:</strong> <span id="stock-symbol"></span></p>
+      <p><strong>Price:</strong> $<span id="stock-price"></span></p>
+      <p><strong>Last Updated:</strong> <span id="stock-time"></span></p>
+
+      <!-- Buy/Sell Section -->
+      <div id="trade-section">
+        <button id="buy-btn">Buy</button>
+        <button id="sell-btn">Sell</button>
+        <button id="reset-btn" style="margin-top:10px;">Reset Portfolio</button>
+      </div>
+
+      <!-- Portfolio Display -->
+      <div id="portfolio">
+        <h3>📊 My Portfolio</h3>
+        <p><strong>Shares Owned:</strong> <span id="shares-owned">0</span></p>
+        <p><strong>Average Buy Price:</strong> $<span id="avg-price">0.00</span></p>
+        <p><strong>Total Value:</strong> $<span id="total-value">0.00</span></p>
+        <p><strong>Profit/Loss:</strong> $<span id="profit-loss">0.00</span></p>
+      </div>
+
+      <!-- Chart Display -->
+      <canvas id="stockChart" style="margin-top:20px;"></canvas>
+    </div>
+  </div>
+
+  <!-- App Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

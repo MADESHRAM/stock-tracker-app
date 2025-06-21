@@ -1,0 +1,81 @@
+/* General Page Styling */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  /* Form Styling */
+  form input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  form button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  /* Stock Info Card */
+  #stock-card {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f9fafc;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Buy/Sell Buttons */
+  #trade-section {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  #trade-section button {
+    padding: 8px 12px;
+    margin: 5px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #trade-section #sell-btn {
+    background-color: #dc3545;
+  }
+  
+  /* Portfolio Display */
+  #portfolio {
+    margin-top: 20px;
+    padding: 10px;
+    background: #eef1f7;
+    border-radius: 10px;
+  }
+  
