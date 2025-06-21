@@ -3,54 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stock Investment App</title>
+  <title>📈 Real-Time Stock Tracker</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
-  <!-- Chart.js Library -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>📈 Real-Time Stock Tracker</h1>
+    <h1><i class="fas fa-chart-line"></i> Real-Time Stock Tracker</h1>
 
     <!-- Stock Symbol Input -->
-    <form id="stock-form">
-      <input type="text" id="symbol-input" placeholder="Enter Stock Symbol (e.g. AAPL)" required>
-      <button type="submit">Get Stock</button>
+    <form id="stock-form" class="input-section">
+      <input type="text" id="symbol-input" placeholder="🔍 Enter Stock Symbol (e.g. AAPL)" required>
+      <button type="submit"><i class="fas fa-search"></i> Get Stock</button>
     </form>
 
     <!-- Stock Info Card -->
-    <div id="stock-card" class="hidden">
-      <h2 id="stock-name">Stock Info</h2>
+    <div id="stock-card" class="hidden card">
+      <h2><i class="fas fa-info-circle"></i> Stock Info</h2>
       <p><strong>Symbol:</strong> <span id="stock-symbol"></span></p>
       <p><strong>Price:</strong> $<span id="stock-price"></span></p>
       <p><strong>Last Updated:</strong> <span id="stock-time"></span></p>
 
-      <!-- Buy/Sell Section -->
+      <!-- Buy/Sell Buttons -->
       <div id="trade-section">
-        <button id="buy-btn">Buy</button>
-        <button id="sell-btn">Sell</button>
-        <button id="reset-btn" style="margin-top:10px;">Reset Portfolio</button>
+        <button id="buy-btn"><i class="fas fa-cart-plus"></i> Buy</button>
+        <button id="sell-btn"><i class="fas fa-cash-register"></i> Sell</button>
+        <button id="reset-btn" class="danger"><i class="fas fa-undo"></i> Reset Portfolio</button>
       </div>
 
-      <!-- Portfolio Display -->
+      <!-- Portfolio Info -->
       <div id="portfolio">
-        <h3>📊 My Portfolio</h3>
+        <h3><i class="fas fa-wallet"></i> My Portfolio</h3>
         <p><strong>Shares Owned:</strong> <span id="shares-owned">0</span></p>
         <p><strong>Average Buy Price:</strong> $<span id="avg-price">0.00</span></p>
         <p><strong>Total Value:</strong> $<span id="total-value">0.00</span></p>
         <p><strong>Profit/Loss:</strong> $<span id="profit-loss">0.00</span></p>
       </div>
-
-      <!-- Chart Display -->
-      <canvas id="stockChart" style="margin-top:20px;"></canvas>
     </div>
+
+    <!-- Chart Canvas -->
+    <canvas id="stockChart" style="margin-top: 20px;"></canvas>
   </div>
 
-  <!-- App Logic -->
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
