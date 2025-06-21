@@ -9,10 +9,102 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome for icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 700px;
+      background-color: #ffffff;
+      padding: 30px;
+      margin: 40px auto;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    .input-section {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .input-section input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .input-section button {
+      padding: 10px 16px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .input-section button:hover {
+      background-color: #0056b3;
+    }
+    .card {
+      border: 1px solid #eee;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #fefefe;
+      margin-bottom: 20px;
+    }
+    #trade-section {
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    #trade-section button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #fff;
+    }
+    #buy-btn {
+      background-color: #28a745;
+    }
+    #sell-btn {
+      background-color: #ffc107;
+    }
+    #reset-btn {
+      background-color: #dc3545;
+    }
+    .danger {
+      margin-top: 10px;
+    }
+    p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    canvas {
+      width: 100% !important;
+      max-height: 300px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -35,7 +127,7 @@
       <div id="trade-section">
         <button id="buy-btn"><i class="fas fa-cart-plus"></i> Buy</button>
         <button id="sell-btn"><i class="fas fa-cash-register"></i> Sell</button>
-        <button id="reset-btn" class="danger"><i class="fas fa-undo"></i> Reset Portfolio</button>
+        <button id="reset-btn"><i class="fas fa-undo"></i> Reset</button>
       </div>
 
       <!-- Portfolio Info -->
@@ -49,7 +141,7 @@
     </div>
 
     <!-- Chart Canvas -->
-    <canvas id="stockChart" style="margin-top: 20px;"></canvas>
+    <canvas id="stockChart"></canvas>
   </div>
 
   <!-- JS Libraries -->

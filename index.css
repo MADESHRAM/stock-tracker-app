@@ -1,4 +1,4 @@
-/* General Styles */
+/* Base Reset & Fonts */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,28 +7,31 @@
 }
 
 body {
-  background: #f5f7fa;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f7fa;
   color: #333;
   padding: 20px;
 }
 
+/* Container */
 .container {
   max-width: 600px;
   margin: auto;
-  padding: 20px;
   background: white;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* Heading */
 h1 {
   text-align: center;
   font-size: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: #2b3a67;
 }
 
-/* Form Styles */
+/* Input Section */
 .input-section {
   display: flex;
   gap: 10px;
@@ -42,7 +45,7 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 8px;
   outline: none;
-  transition: border 0.3s;
+  transition: border-color 0.3s;
 }
 
 .input-section input:focus {
@@ -64,12 +67,12 @@ h1 {
   background: #3730a3;
 }
 
-/* Card & Portfolio Styles */
+/* Card Info */
 .card {
   padding: 20px;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   margin-top: 20px;
 }
 
@@ -86,7 +89,7 @@ h1 {
   font-size: 15px;
 }
 
-/* Button Group */
+/* Buttons for Trading */
 #trade-section {
   display: flex;
   gap: 10px;
@@ -97,16 +100,16 @@ h1 {
 #trade-section button {
   flex: 1;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 600;
   border: none;
   cursor: pointer;
   transition: background 0.3s;
+  color: white;
 }
 
 #buy-btn {
   background-color: #16a34a;
-  color: white;
 }
 
 #buy-btn:hover {
@@ -115,7 +118,6 @@ h1 {
 
 #sell-btn {
   background-color: #2563eb;
-  color: white;
 }
 
 #sell-btn:hover {
@@ -124,15 +126,10 @@ h1 {
 
 #reset-btn {
   background-color: #f97316;
-  color: white;
 }
 
 #reset-btn:hover {
   background-color: #ea580c;
-}
-
-.hidden {
-  display: none;
 }
 
 /* Chart Styles */
@@ -145,12 +142,14 @@ canvas {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .input-section {
-    flex-direction: column;
-  }
+/* Utility */
+.hidden {
+  display: none;
+}
 
+/* Responsive Design */
+@media (max-width: 480px) {
+  .input-section,
   #trade-section {
     flex-direction: column;
   }

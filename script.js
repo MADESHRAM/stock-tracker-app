@@ -1,5 +1,5 @@
 // ✅ Replace with your real API key
-const apiKey = "06KFOBNEBF7247VG";
+const apiKey = " P98T6IE0OBZIYMNX";
 
 // 🔁 Load saved portfolio or use default
 let sharesOwned = parseInt(localStorage.getItem("sharesOwned")) || 0;
@@ -63,29 +63,26 @@ document.getElementById('stock-form').addEventListener('submit', function (e) {
   const symbol = document.getElementById('symbol-input').value.toUpperCase();
 
   // 🌐 Get real-time quote
-  fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      const stock = data["Global Quote"];
-      if (!stock || !stock["05. price"]) {
-        alert("Invalid symbol or data not available.");
-        return;
-      }
+  // ✅ Fetch intraday data for chart
+fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${apiKey}`)
+  .then(response => response.json())
+  .then(chartData => {
+    const timeSeries = chartData["Time Series (5min)"];
+    if (!timeSeries) {
+      console.error("Chart data missing or incorrect:", chartData); // 👈 ADD THIS
+      alert("Chart data not available. Try again later or with a different stock.");
+      return;
+    }
 
-      const price = parseFloat(stock["05. price"]);
-      document.getElementById('stock-symbol').innerText = stock["01. symbol"];
-      document.getElementById('stock-price').innerText = price.toFixed(2);
-      document.getElementById('stock-time').innerText = new Date().toLocaleString();
-      document.getElementById('stock-name').innerText = "Stock Info";
-      document.getElementById('stock-card').classList.remove('hidden');
+    const labels = Object.keys(timeSeries).reverse().slice(0, 12);
+    const prices = labels.map(time => parseFloat(timeSeries[time]["1. open"]));
+    renderChart(labels, prices);
+  })
+  .catch(err => {
+    console.error("Chart fetch error", err); // 👈 IMPORTANT
+    alert("Error fetching chart data.");
+  });
 
-      updatePortfolio(price);
-      fetchIntradayData(symbol);
-    })
-    .catch(err => {
-      alert("Error fetching stock data.");
-      console.error(err);
-    });
 });
 
 // ⏱️ Fetch chart data (5-min intervals)
